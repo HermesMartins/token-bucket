@@ -11,17 +11,18 @@ namespace bandwidthThrottle\tokenBucket;
  */
 final class Rate
 {
-    
+
     const MICROSECOND = "microsecond";
     const MILLISECOND = "millisecond";
-    const SECOND = "second";
-    const MINUTE = "minute";
-    const HOUR   = "hour";
-    const DAY    = "day";
-    const WEEK   = "week";
-    const MONTH  = "month";
-    const YEAR   = "year";
-
+    const SECOND      = "second";
+    const MINUTE      = "minute";
+    const TWO_MINUTE  = "two_minute";
+    const HOUR        = "hour";
+    const DAY         = "day";
+    const WEEK        = "week";
+    const MONTH       = "month";
+    const YEAR        = "year";
+    
     /**
      * @var double[] Mapping between units and seconds
      */
@@ -30,13 +31,14 @@ final class Rate
         self::MILLISECOND =>        0.001,
         self::SECOND      =>        1,
         self::MINUTE      =>       60,
+        self::TWO_MINUTE  =>      120,
         self::HOUR        =>     3600,
         self::DAY         =>    86400,
         self::WEEK        =>   604800,
         self::MONTH       =>  2629743.83,
         self::YEAR        => 31556926,
     ];
-    
+
     /**
      * @var int The amount of tokens to produce for the unit.
      */
